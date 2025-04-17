@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 const app=express()
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://resorto.vercel.app/',
     // origin: 'http://192.168.1.159:5173',
     // origin: 'http://192.168.43.147:5173',
     credentials: true
