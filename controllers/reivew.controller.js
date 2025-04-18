@@ -90,7 +90,7 @@ const reviewVerify = asyncHandler( async(req,res)=>{
             existingReview.approved=false
             await existingReview.save()
             
-            await sendReviewEmail("naman.2024csit1064@kiet.edu", data)
+            await sendReviewEmail(process.env.ADMIN_EMAIL, data)
 
             res.status(200).json(new ApiResponse(200, {}, "Review updated successfully and sent for approval"));
         }
