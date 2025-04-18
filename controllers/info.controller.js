@@ -12,7 +12,7 @@ const updateInfo = asyncHandler( async(req,res)=>{
     }
     
     Object.keys(data).forEach((key)=>{
-        if(data[key] !== undefined && data[key]!==null && data[key]!='')
+        if(data[key] !== undefined && data[key]!==null)
         {
             info[key]=data[key]
         }
