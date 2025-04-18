@@ -97,6 +97,7 @@ const loginPart2 = asyncHandler(async(req,res)=>{
     const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24 * 10
     }
 
@@ -139,6 +140,7 @@ const resetPasswordPart2 = asyncHandler( async(req,res)=>{
     const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24 * 10
     }
     res.clearCookie("accessToken",options)
@@ -170,8 +172,9 @@ const refreshAccessToken = asyncHandler( async(req,res)=>{
         }
         const options = {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production"
-            ,maxAge: 1000 * 60 * 60 * 24 * 10
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "None",
+            maxAge: 1000 * 60 * 60 * 24 * 10
         }
 
         const {accessToken,refreshToken}=await generateAccessAndRefreshTokens(user)
@@ -214,6 +217,7 @@ const logout = asyncHandler( async(req,res)=>{
     const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
+        sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24 * 10
     }
     res.clearCookie("accessToken",options)
